@@ -1,0 +1,72 @@
+﻿@model IEnumerable<TaskAppWeb.Models.TaskDetails>
+
+@{
+    ViewData["Title"] = "Task List";
+}
+
+<h1>Task List</h1>
+<div class="row">
+    <div class="col-md-30">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr class="text-center">
+                    <th>ID</th>
+                    <th>Description</th>
+                    <th>Start date</th>
+                    <th>End date</th>
+                    <th>User</th>
+                    <th>Category</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.StartDate)
+                        </td>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.EndDate)
+                        </td>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.User)
+                        </td>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.Category)
+                        </td>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.Priority)
+                        </td>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.Status)
+                        </td>
+                        <td class="align-middle" width="400px">
+                            <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-eye"></i>Details </a>
+                            <a class="btn btn-outline-info" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil"></i>Edit</a>
+                            <a class="btn btn-danger text-white" asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i>Delete </a>
+                        </td>
+                    </tr>
+                }
+
+
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div style="position:fixed; right: 25px; bottom: 25px; " class="text-white">
+    <a asp-controller="TaskDetails" asp-action="Create" class="btn btn-success">
+        <i class="bi bi-plus-circle"></i> Add Task
+    </a>
+</div>
+

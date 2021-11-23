@@ -1,0 +1,51 @@
+﻿@model TaskUpdate
+
+@{
+    ViewData["Title"] = "Change Info";
+}
+
+<div class="row text">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h1>Update Task Information</h1>
+        </p>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group">
+                        <label asp-for="Id" class="control-label"></label>
+                        <input asp-for="Id" class="form-control" readonly />
+                        <span asp-validation-for="Id" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TaskDetailsId" class="control-label"></label>
+                        <input asp-for="TaskDetailsId" class="form-control" readonly />
+                        <span asp-validation-for="TaskDetailsId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="UpdateInfo" class="control-label"></label>
+                        <textarea asp-for="UpdateInfo" class="form-control" rows="3"></textarea>
+                        <span asp-validation-for="UpdateInfo" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="User" class="control-label"></label>
+                        <input asp-for="User" class="form-control" readonly />
+                        <span asp-validation-for="User" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DateUpdated" class="control-label"></label>
+                        <input asp-for="DateUpdated" class="form-control" />
+                        <span asp-validation-for="DateUpdated" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Update" class="btn btn-outline-success float-right" />
+                        <a class="btn btn-outline-secondary" asp-action="Index">Show Update List</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
